@@ -5,20 +5,22 @@ function NotesLists (props) {
     if (props.notes !== undefined)
         return(
         <>
-            <div className="card">
-                <div className="card-header">
-                    Featured
-                </div>
-                <div className="card-body">
+            <div>
                     {
                         props.notes.map((note,index) => (
-                            <div key={index} className='row'>
-                                <h5 className="card-title">{note.data}</h5>
+
+
+                            // eslint-disable-next-line react/style-prop-object
+                            <div className="card">
+                                <h5 className="card-header" >Nota Numero: {note.id}</h5>
+                                <div className="card-body">
+                                    <h5 className="card-title">Special title treatment</h5>
+                                    <p className="card-text">{note.data}</p>
+                                    <a href="#" className="btn btn-primary">Editar Nota</a>
+                                </div>
                             </div>
                         ))
                     }
-                    <a href="#" className="btn btn-primary">BUTTON</a>
-                </div>
             </div>
         </>
     )
