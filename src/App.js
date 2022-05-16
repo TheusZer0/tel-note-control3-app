@@ -5,6 +5,7 @@ import NotesLists from "./components/NotesLists";
 
 import {useEffect, useState} from 'react'
 import axios from "axios";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
 
@@ -24,21 +25,27 @@ function App() {
         fetchData()
     })
 
+    const [notesDataForm, setDataForm] = useState("")
+
   return (
-    <div>
-        <div className="App" />
+      <Router>
+          <Navbar></Navbar>
+          <Routes>
+              <Route path="/" element={
+                  <NotesLists notes={notesData}></NotesLists>
+              } />
+              <Route path="/get-all-notes" element={
+                  <NotesLists notes={notesData}></NotesLists>
+              } />
+              <Route path="/create-note" element={
+                  <NoteForm dataForm={notesDataForm} setDataForm={setDataForm}></NoteForm>
+              } />
 
-      <header>
-      <Navbar></Navbar>
-      </header>
-
-      <body>
-        <NoteForm></NoteForm>
-        <NotesLists notes={notesData}></NotesLists>
-      </body>
-    </div>
+              <Route path="*" element={<NotesLists />} />
+          </Routes>
+      </Router>
 
   );
 }
-
+// <NotesLists notes={notesData}></NotesLists>
 export default App;

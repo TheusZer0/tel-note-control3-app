@@ -6,7 +6,7 @@ export const Navbar = () => {
 
             <nav className="navbar navbar-dark bg-dark">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">
+                <a className="navbar-brand" >
                 <div className="container">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_UTFSM.png" alt="" width="30" height="24" class="d-inline-block align-text-top" />
                 Tel-Note
