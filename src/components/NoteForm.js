@@ -1,5 +1,6 @@
 import axios from "axios";
 import {body} from "koa/lib/response";
+import {Link} from "react-router-dom";
 
 function NoteForm({notesDataForm,setDataForm}){
 
@@ -9,20 +10,22 @@ function NoteForm({notesDataForm,setDataForm}){
         }
     }
 
+
     function handleChange(event) {
         event.preventDefault();
-        console.log(notesDataForm.dataForm)
         axios.post('http://localhost:8080/create-note', {
-            data: "Test"
+            data: notesDataForm
         }).then(function (response) {
                 console.log(response);
             }).catch(function (error) {
                 console.log(error);
             });
+        window.location.href = "/get-all-notes";
     }
 
     return (
         <>
+
             <div className='container' style={{ padding: "40px" }}>
                 <div className='row justify-content-center'>
                     <div className="col-mb-3">
@@ -32,9 +35,14 @@ function NoteForm({notesDataForm,setDataForm}){
                                 <input type="text" className="form-control" id="dataDescription" placeholder="Ingresa tu descripcion" onChange={inputHandleChange} value={notesDataForm}></input>
                             </div>
                             <div className='container' style={{ padding: "10px" }}>
+
+
                                 <div className="d-grid gap-2 col-6 mx-auto">
-                                    <button type="submit" className="btn btn-success mb-3" onClick={handleChange} >Confirmar Nota</button>
+                                    {/* eslint-disable-next-line no-template-curly-in-string */}
+                                    <Link type="submit" className="btn btn-success mb-3" onClick={handleChange} to="/get-all-notes">Confirmar Nota
+                                    </Link>
                                 </div>
+
                             </div>
                         </form>
                     </div>

@@ -38,7 +38,7 @@ function App() {
                   <NotesLists notes={notesData}></NotesLists>
               } />
               <Route path="/create-note" element={
-                  <NoteForm dataForm={notesDataForm} setDataForm={setDataForm}></NoteForm>
+                  <NoteForm notesDataForm={notesDataForm} setDataForm={setDataForm}></NoteForm>
               } />
 
               <Route path="*" element={<NotesLists />} />
