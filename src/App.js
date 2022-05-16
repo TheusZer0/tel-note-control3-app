@@ -2,6 +2,7 @@ import './App.css';
 import { Navbar } from './components/Navbar';
 import  NoteForm  from './components/NoteForm';
 import NotesLists from "./components/NotesLists";
+import oneNote from "./components/oneNote";
 
 import {useEffect, useState} from 'react'
 import axios from "axios";
@@ -40,12 +41,14 @@ function App() {
               <Route path="/create-note" element={
                   <NoteForm notesDataForm={notesDataForm} setDataForm={setDataForm}></NoteForm>
               } />
-
+              <Route path="/get-note/:id" element={<oneNote></oneNote>}
+               />
               <Route path="*" element={<NotesLists />} />
           </Routes>
       </Router>
 
   );
 }
+
 // <NotesLists notes={notesData}></NotesLists>
 export default App;
